@@ -18,7 +18,7 @@ jobs:
       - name: Generate changelog
         run: npx changelogithub # or changelogithub@0.12 if ensure the stable result
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   release:
     needs: changelog
@@ -79,7 +79,7 @@ jobs:
       - name: Upload dist files
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.MY_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           branch: main
           directory: web-dist
           repository: Clouddark75/web-dist
